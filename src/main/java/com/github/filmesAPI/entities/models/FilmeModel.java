@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 @Entity
 @Data
 @Table(name = "filmes")
@@ -14,7 +16,8 @@ public class FilmeModel {
     private int id;
     private String titulo;
     private String descricao;
-
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "filme")
+    private List<ReviewModel> avaliacoes;
     public void updateValues(FilmeModel data){
         if(data.getTitulo() != null){
             this.titulo = data.getTitulo();
