@@ -8,13 +8,19 @@ import com.github.filmesAPI.repository.FilmeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
-public class CrudFilmeService {
+public class FilmesService {
 
     @Autowired
     FilmeRepository filmeRepository;
     public Iterable<FilmeModel> getFilmes(){
         return filmeRepository.findAll();
+    }
+
+    public List<FilmeModel> getFilmeRecomendado(){
+        return filmeRepository.filmesRecomendados();
     }
 
     public String createFilmes(FilmeModel data) throws CreateFilmeException {
