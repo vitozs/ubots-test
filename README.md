@@ -2,12 +2,12 @@
 # Ubots - teste técnico
 
 Este repositório foi desenvolvido com o intuito de realizar um teste técnico da empresa Ubots.   
-A branch `deploy` foi destinada apenas para a execução da API e resolução de outros testes lógicos solicitados.   
-Se você deseja acessar o código da API, acesse a branch `dev`.   
+O desafio proposto foi desenvolver uma API de filmes, onde se poderia avaliar os mesmos e fazer recomendações aos usuários. O prazo de envio foi de 2 dias;
 
-
-Obrigado pela atenção 😁!
-
+## Branches
+- ``deploy`` : Destinada para a execução da API, contém o sistema buildado e o código referente ao teste lógico também solicitado;
+- ``dev`` : Contém todo código do desenvolvimento da API;
+  
 ## Ferramentas utilizadas
 - Java 17
 - Spring Framework
