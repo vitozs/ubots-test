@@ -25,7 +25,7 @@ Com o docker instalado, executaremos as seguintes linha de comando:
 
 
 ```
-docker create network ubots-test
+docker network create ubots-test
 
 docker container run --name postgresdb --network -e POSTGRES_PASSWORD=root -e POSTGRES_USER=root -e POSTGRES_DB=ubots  postgres
 
