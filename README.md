@@ -1,6 +1,13 @@
 
 # Ubots - teste técnico
 
+Este repositório foi desenvolvido com o intuito de realizar um teste técnico da empresa Ubots.   
+A branch `deploy` foi destinada apenas para a execução da API e resolução de outros testes lógicos solicitados.   
+Se você deseja acessar o código da API, acesse a branch `dev`.   
+
+
+Obrigado pela atenção 😁!
+
 ## Ferramentas utilizadas
 - Java 17
 - Spring Framework
@@ -48,3 +55,4 @@ Abra o seu navegador no seguinte endereço para consultar a documentação da AP
 ```
 localhost:8080/swagger-ui.html
 ```
+
