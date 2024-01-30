@@ -1,6 +1,6 @@
 # Ubots - teste técnico
 
-## Como usar
+## API - Como usar
 
 Diferentemente do `deploy`, você precisaria ter o `JDK 17` instalado em sua máquina! 
 
