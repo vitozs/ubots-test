@@ -18,7 +18,7 @@ Obrigado pela atenção 😁!
     - Flyway
 - Docker
 
-## Como usar
+## Deploy - Como executar a API
 
 Primeiro, iremos precisar ter o docker instalado no computador para poder rodar o projeto.
 Com o docker instalado, executaremos as seguintes linha de comando: 
