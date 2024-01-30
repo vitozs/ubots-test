@@ -1,3 +1,5 @@
-FROM mariadb
-ENV  MARIADB_ROOT_PASSWORD=1101
-COPY ./init.sql  /docker-entrypoint-initdb.d 
+FROM eclipse-temurin:17-jdk-alpine
+VOLUME /tmp
+ARG JAR_FILE
+COPY ${JAR_FILE} app.jar
+ENTRYPOINT ["java","-jar","/app.jar"]
