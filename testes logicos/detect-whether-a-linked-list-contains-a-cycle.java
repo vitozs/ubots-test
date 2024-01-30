@@ -1,12 +1,4 @@
-import java.io.*;
-import java.math.*;
-import java.security.*;
-import java.text.*;
-import java.util.*;
-import java.util.concurrent.*;
-import java.util.regex.*;
-
-public class Solution {
+class Solution {
 
     static class SinglyLinkedListNode {
         public int data;
@@ -52,32 +44,23 @@ public class Solution {
         }
     }
 
-    // Complete the hasCycle function below.
-
-    /*
-     * For your reference:
-     *
-     * SinglyLinkedListNode {
-     *     int data;
-     *     SinglyLinkedListNode next;
-     * }
-     *
-     */
+    //Trecho de código implementado no HackerRank
+    
     static boolean hasCycle(SinglyLinkedListNode head) {
-        
-        if (head == null) {
-                return true;
+        if (head == null || head.next == null) {
+            return false;
         }
-        SinglyLinkedListNode fast = head;
+        SinglyLinkedListNode fast = head.next;
         SinglyLinkedListNode slow = head;
-        while (fast != null && fast.next != null) {
+        while (fast != null && fast.next != null && fast != slow) {
             fast = fast.next.next;
             slow = slow.next;
-            if (fast == slow) {
-                return true;
-            }
+        }
+        if (fast == slow) {
+            return true;
         }
         return false;
+
     }
 
     private static final Scanner scanner = new Scanner(System.in);
@@ -103,8 +86,8 @@ public class Solution {
 
                 llist.insertNode(llistItem);
             }
-          
-          	SinglyLinkedListNode extra = new SinglyLinkedListNode(-1);
+
+            SinglyLinkedListNode extra = new SinglyLinkedListNode(-1);
             SinglyLinkedListNode temp = llist.head;
 
             for (int i = 0; i < llistCount; i++) {
@@ -116,8 +99,8 @@ public class Solution {
                     temp = temp.next;
                 }
             }
-      
-      		temp.next = extra;
+
+            temp.next = extra;
 
             boolean result = hasCycle(llist.head);
 
