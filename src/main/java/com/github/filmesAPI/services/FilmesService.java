@@ -1,5 +1,6 @@
 package com.github.filmesAPI.services;
 
+import com.github.filmesAPI.entities.DTO.FilmeDTO;
 import com.github.filmesAPI.entities.models.FilmeModel;
 import com.github.filmesAPI.exceptions.CreateFilmeException;
 import com.github.filmesAPI.exceptions.DeleteFilmeException;
@@ -23,9 +24,11 @@ public class FilmesService {
         return filmeRepository.filmesRecomendados();
     }
 
-    public String createFilmes(FilmeModel data) throws CreateFilmeException {
+    public String createFilmes(FilmeDTO data) throws CreateFilmeException {
         try{
-            filmeRepository.save(data);
+            FilmeModel filmeModel = new FilmeModel();
+            filmeModel.updateValues(data);
+            filmeRepository.save(filmeModel);
         }catch (Exception e){
             throw new CreateFilmeException("Erro ao cadastrar Filme, tente novamente!");
         }
@@ -45,7 +48,7 @@ public class FilmesService {
 
     }
 
-    public String updateFilmes(FilmeModel filmeModel, Long id){
+    public String updateFilmes(FilmeDTO filmeModel, Long id){
         try{
             FilmeModel filme = filmeRepository.getReferenceById(id);
             filme.updateValues(filmeModel);

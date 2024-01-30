@@ -1,6 +1,7 @@
 package com.github.filmesAPI.controllers;
 
 
+import com.github.filmesAPI.entities.DTO.FilmeDTO;
 import com.github.filmesAPI.entities.models.FilmeModel;
 import com.github.filmesAPI.exceptions.CreateFilmeException;
 import com.github.filmesAPI.exceptions.DeleteFilmeException;
@@ -27,7 +28,7 @@ public class FilmesController {
         return new ResponseEntity<>(filmesService.getFilmeRecomendado(), HttpStatus.OK);
     }
     @PostMapping("create")
-    public ResponseEntity<String> createFilmes(@RequestBody FilmeModel data) throws CreateFilmeException {
+    public ResponseEntity<String> createFilmes(@RequestBody FilmeDTO data) throws CreateFilmeException {
         return new ResponseEntity<>(filmesService.createFilmes(data), HttpStatus.CREATED);
 
     }
@@ -38,7 +39,7 @@ public class FilmesController {
     }
 
     @PutMapping("update")
-    public ResponseEntity<String> updateFilmes(@RequestBody FilmeModel filmeModel, @RequestParam Long id){
+    public ResponseEntity<String> updateFilmes(@RequestBody FilmeDTO filmeModel, @RequestParam Long id){
         return new ResponseEntity<>(filmesService.updateFilmes(filmeModel, id), HttpStatus.OK);
     }
 }

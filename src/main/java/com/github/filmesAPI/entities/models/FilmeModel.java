@@ -1,5 +1,6 @@
 package com.github.filmesAPI.entities.models;
 
+import com.github.filmesAPI.entities.DTO.FilmeDTO;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;
@@ -18,7 +19,7 @@ public class FilmeModel {
     private String descricao;
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "filme")
     private List<ReviewModel> avaliacoes;
-    public void updateValues(FilmeModel data){
+    public void updateValues(FilmeDTO data){
         if(data.getTitulo() != null){
             this.titulo = data.getTitulo();
 
