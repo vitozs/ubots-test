@@ -31,17 +31,10 @@ docker container run --name postgresdb --network ubots-test -e POSTGRES_PASSWORD
 
 ```
 
-
-Com o banco postgres criado, build o projeto java, executando o seguinte comando na raiz do projeto: 
-
-```
- ./gradlew bootJar       
-```
-
-Após buildar, execute os seguintes comandos na raiz do projeto: 
+Com o banco postgres criado, execute os seguintes comandos na raiz do projeto: 
 
 ```
-docker build --build-arg JAR_FILE=build/libs/*.jar -t filmes-api .       
+docker build --build-arg JAR_FILE=api/*.jar -t filmes-api .       
 
 docker container run --network ubots-test --name api-ubots -p 8080:8080 filmes-api         
 
