@@ -39,10 +39,13 @@ public class FilmesService {
 
     public String deleteFilmes(Long id) throws DeleteFilmeException {
         try{
-            FilmeModel filme = filmeRepository.getReferenceById(id);
-            filmeRepository.deleteById((long) filme.getId());
+            if(filmeRepository.existsById(id)){
+                filmeRepository.deleteById(id);
+            }else{
+                throw new DeleteFilmeException("Erro ao deletar! Verifique se o id é válido e tente novamente");
+            }
         }catch (Exception e){
-            throw new DeleteFilmeException("Erro ao deletar! Verifique se o id é válido e tente novamente");
+            return e.getMessage();
         }
         return "Deletado com sucesso";
 
@@ -50,11 +53,16 @@ public class FilmesService {
 
     public String updateFilmes(FilmeDTO filmeModel, Long id){
         try{
-            FilmeModel filme = filmeRepository.getReferenceById(id);
-            filme.updateValues(filmeModel);
-            filmeRepository.save(filme);
+            if(filmeRepository.existsById(id)){
+                FilmeModel filme = filmeRepository.getReferenceById(id);
+                filme.updateValues(filmeModel);
+                filmeRepository.save(filme);
+            }else{
+                throw new  UpdateFilmeException("Erro ao atualizar o filme! Verifique se o id é válido e tente novamente");
+            }
+
         }catch (Exception e){
-            throw new UpdateFilmeException("Erro ao atualizar o filme! Verifique se o id é válido e tente novamente");
+            return e.getMessage();
         }
         return "Alterado com sucesso";
 
