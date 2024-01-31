@@ -3,8 +3,8 @@ package com.github.filmesAPI.controllers;
 
 import com.github.filmesAPI.entities.DTO.FilmeDTO;
 import com.github.filmesAPI.entities.models.FilmeModel;
-import com.github.filmesAPI.exceptions.CreateFilmeException;
-import com.github.filmesAPI.exceptions.DeleteFilmeException;
+import com.github.filmesAPI.exceptions.CreateException;
+import com.github.filmesAPI.exceptions.DeleteException;
 import com.github.filmesAPI.services.FilmesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -28,13 +28,13 @@ public class FilmesController {
         return new ResponseEntity<>(filmesService.getFilmeRecomendado(), HttpStatus.OK);
     }
     @PostMapping("create")
-    public ResponseEntity<String> createFilmes(@RequestBody FilmeDTO data) throws CreateFilmeException {
+    public ResponseEntity<String> createFilmes(@RequestBody FilmeDTO data) throws CreateException {
         return new ResponseEntity<>(filmesService.createFilmes(data), HttpStatus.CREATED);
 
     }
 
     @DeleteMapping("delete")
-    public ResponseEntity<String> deleteFilmes(@RequestParam Long id) throws DeleteFilmeException {
+    public ResponseEntity<String> deleteFilmes(@RequestParam Long id) throws DeleteException {
         return new ResponseEntity<>(filmesService.deleteFilmes(id), HttpStatus.OK);
     }
 

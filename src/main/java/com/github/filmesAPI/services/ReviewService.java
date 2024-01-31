@@ -3,8 +3,8 @@ package com.github.filmesAPI.services;
 import com.github.filmesAPI.entities.DTO.ReviewDTO;
 import com.github.filmesAPI.entities.models.FilmeModel;
 import com.github.filmesAPI.entities.models.ReviewModel;
-import com.github.filmesAPI.exceptions.CreateFilmeException;
-import com.github.filmesAPI.exceptions.DeleteFilmeException;
+import com.github.filmesAPI.exceptions.CreateException;
+import com.github.filmesAPI.exceptions.DeleteException;
 import com.github.filmesAPI.repository.FilmeRepository;
 import com.github.filmesAPI.repository.ReviewRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +27,7 @@ public class ReviewService {
                 reviewModel.setFilme(filmeModel);
                 reviewRepository.save(reviewModel);
             }else{
-                throw new CreateFilmeException("Erro ao criar a avaliação! Verifique se o id está correto e tente novamente");
+                throw new CreateException("Erro ao criar a avaliação! Verifique se o id está correto e tente novamente");
             }
         }catch (Exception e){
             return e.getMessage();
@@ -56,7 +56,7 @@ public class ReviewService {
             if(reviewRepository.existsById(id)){
                 reviewRepository.deleteById(id);
             }else{
-                throw new DeleteFilmeException("Erro ao remover a avaliacao! Verifique se o id da mesma está correto");
+                throw new DeleteException("Erro ao remover a avaliacao! Verifique se o id da mesma está correto");
             }
         }catch (Exception e){
             return e.getMessage();
